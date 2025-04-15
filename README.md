@@ -44,6 +44,10 @@ Timestamp,Time Elapsed (us),Self Duration (us), Type,Phase,Description
 12:12:10.819123,220,196,Info,SSL Handshake,"TLSv1.3 (OUT), TLS handshake, Client hello (1):"
 ```
 
+![Screenshot of Google Sheets showing a table containing network data, a pivot table aggregating the data by phase, and a chart showing the loading progress](https://github.com/user-attachments/assets/f2eaf5e9-1780-41b9-8f55-da1cf0421bbe)
+
+The preceding image is a screenshot of the [sample data as viewed in Google Sheets](https://docs.google.com/spreadsheets/d/1HwYeIzVMTOdoJCavkEWSJR_wl2m5rhLAWcdwSKQSetA/edit?usp=sharing).
+
 ## License and Copyright
 
 This software is released under the terms of the [MIT license](https://github.com/kevinfarrugia/crux_csv/blob/main/LICENSE).
