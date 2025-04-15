@@ -1,5 +1,5 @@
 # cURL Time
-Use `cURL` to retrieve the time spent on the different phases of a network request / response over HTTP(S).
+Use `cURL` to retrieve the time spent on the different phases of a network request.
 
 ## Installation
 
@@ -38,7 +38,7 @@ $ ./curltime --help
 ## Sample Output
 
 ```sh
-Timestamp,Time Elapsed (us),Self Time (us), Type,Phase,Description
+Timestamp,Time Elapsed (us),Self Duration (us), Type,Phase,Description
 12:12:10.818903,0,0,Info,DNS,"IPv6: 2600:1408:ec00:36::1736:7f24, ..."
 12:12:10.818927,24,24,Info,TCP Connect,"Trying 96.7.128.198:80..."
 12:12:10.819123,220,196,Info,SSL Handshake,"TLSv1.3 (OUT), TLS handshake, Client hello (1):"

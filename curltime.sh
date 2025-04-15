@@ -80,7 +80,7 @@ echo "[3/4] Writing to CSV..."
 
 # Build CSV
 {
-  echo "Timestamp,Time Elapsed (us),Self (us),Type,Phase,Description"
+  echo "Timestamp,Time Elapsed (us),Self Duration (us),Type,Phase,Description"
 
   first_time=""
   grep -E "^[0-9]{2}:[0-9]{2}:[0-9]{2}\.[0-9]{6}" "$LOG_FILE" | while IFS= read -r line; do
