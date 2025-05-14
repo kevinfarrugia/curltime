@@ -12,14 +12,33 @@ $ chmod +x curltime.sh
 
 ## Usage
 
-**Basic usage**
+**Regular usage**
+
+Regular mode uses `cURL` to create a CSV file containing details of the time spent at the different steps required to download a resource.
+
 ```sh
-$ ./curltime -o ~/Downloads/trace.csv http://example.com
+$ ./curltime.sh -o ~/Downloads/trace.csv http://example.com
+```
+
+**Simple mode**
+
+Simple mode uses `cURL` to output high-level values  into the terminal.
+
+```sh
+$  ./curltime.sh -s http://example.com
+|                    0.000000s
+| time_namelookup    0.000860s
+| time_connect       0.020277s
+| time_appconnect    0.058761s
+| time_pretransfer   0.058894s
+| time_redirect      0.000000s
+| time_starttransfer 0.351321s
+| time_total         0.402555s
 ```
 
 See help for usage instructions.
 ```sh
-$ ./curltime --help
+$ ./curltime.sh --help
 ```
 
 

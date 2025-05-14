@@ -3,16 +3,22 @@
 usage() {
   echo -e "Usage: $0 [options...] <url> \n\
  -h, --help          Display help
+ -s, --simple        Run in simple mode (no CSV output)
  -o, --output <path> Output path where to save results" 1>&2
   exit 1
 }
 
+simple=0
 output=
 
 while [[ $# -gt 0 ]]; do
   case $1 in
   -h | --help)
     usage
+    shift
+    ;;
+  -s | --simple)
+    simple=1
     shift
     ;;
   -o | --output)
@@ -27,15 +33,37 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-if [ -z "$output" ]; then
-  echo "Output path is required."
+# check if cURL is installed
+if ! command -v curl &>/dev/null; then
+  echo "cURL is not installed. Please install it to use this script."
+  exit 1
+fi
+
+# if output is not set and simple is not set, show usage
+if [ -z "$output" ] && [ -z "$simple" ]; then
+  echo "Output path or simple mode is required."
   1>&2
-  echo "Use -o or --output to specify the output path."
+  echo -e "Use -o or --output to specify the output path or -s or --simple to run in simple mode."
   exit 1
 fi
 
 if [ -z "$url" ]; then
   usage
+fi
+
+# if simple flag is set
+if [ -n "$simple" ]; then
+ curl -w @- -o /dev/null -s "$url" <<'EOF'
+|                    0.000000s\n
+| time_namelookup    %{time_namelookup}s\n
+| time_connect       %{time_connect}s\n
+| time_appconnect    %{time_appconnect}s\n
+| time_pretransfer   %{time_pretransfer}s\n
+| time_redirect      %{time_redirect}s\n
+| time_starttransfer %{time_starttransfer}s\n
+| time_total         %{time_total}s\n
+EOF
+  exit 0
 fi
 
 LOG_FILE=log.txt
