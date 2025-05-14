@@ -14,7 +14,7 @@ $ chmod +x curltime.sh
 
 **Basic usage**
 ```sh
-$ ./curltime http://example.com ~/Downloads/trace.csv
+$ ./curltime -o ~/Downloads/trace.csv http://example.com
 ```
 
 See help for usage instructions.
